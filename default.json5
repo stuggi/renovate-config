@@ -2,7 +2,8 @@
   "timezone": "America/New_York",
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": true,
   "logFileLevel": "trace",
@@ -17,6 +18,18 @@
   "packageRules": [
     {
       "matchPackageNames": ["go"],
+      "enabled": false
+    },
+    {
+      // Don't pin our own reusable workflows — we control them and @main is intentional
+      "matchManagers": ["github-actions"],
+      "matchPackagePatterns": ["^openstack-k8s-operators/"],
+      "pinDigests": false
+    },
+    {
+      // Don't bump Go version in workflow setup-go steps — we control Go version bumps manually
+      "matchManagers": ["github-actions"],
+      "matchDepNames": ["go"],
       "enabled": false
     },
     {
