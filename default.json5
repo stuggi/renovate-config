@@ -12,6 +12,7 @@
   "constraints": {
     "go": "1.26"
   },
+  "commitMessagePrefix": "[{{baseBranch}}]",
   "schedule":[
     "every weekend"
   ],
