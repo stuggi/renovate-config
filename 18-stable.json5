@@ -60,8 +60,8 @@
       "matchPackagePatterns": ["^k8s.io"],
       // We exclude kube-openapi as it has no tags
       "excludePackagePatterns": ["^k8s.io/kube-openapi"],
-      // Allow k8s.io v0.31.x for OCP 4.18
-      "allowedVersions": "< 0.32.0",
+      // Allow k8s.io v0.33.x for OCP 4.20
+      "allowedVersions": "< 0.34.0",
       "enabled": true
     },
     {
@@ -76,20 +76,17 @@
         "k8s.io/component-base"
       ],
       "matchDepTypes": ["replace"],
-      "groupName": "k8s.io 0.31.x replaces",
-      "allowedVersions": "< 0.32.0"
+      "groupName": "k8s.io 0.33.x replaces",
+      "allowedVersions": "< 0.34.0"
     },
-    // cmctl 2.2.0 has k8s api 0.33 dependencies
+    // cmctl 2.4.0 has k8s api 0.34 dependencies
     {
       "matchPackageNames": [
         "github.com/cert-manager/cmctl/v2",
       ],
       "matchDepTypes": ["replace"],
-      "groupName": "cmctl 2.1.2 replaces",
-      "allowedVersions": "2.1.2-0.20241127223932-88edb96860cf",
-      "digest": {
-        "enabled": false
-      }
+      "groupName": "cmctl 2.3.0 replaces",
+      "allowedVersions": "< 2.4.0"
     },
     // We disable kube-openapi updates as it has no tags to express a limit
     // due to other k8s.io packages. So we rely on bumping this transitively
@@ -118,8 +115,8 @@
     {
       "groupName": "sigs.k8s.io/controller-runtime",
       "matchPackagePatterns": ["^sigs.k8s.io/controller-runtime"],
-      // Allow controller-runtime v0.19.x for OCP 4.18
-      "allowedVersions": "< 0.20.0",
+      // Allow controller-runtime v0.21.x for OCP 4.20
+      "allowedVersions": "< 0.22.0",
       "enabled": true
     },
     // We need to manually select a version to bump to as there
@@ -144,7 +141,7 @@
     {
       "groupName": "network-attachment-definition-client",
       "matchPackagePatterns": ["^github.com/k8snetworkplumbingwg/network-attachment-definition-client"],
-      // OCP 4.16 use v1.7 https://github.com/openshift/multus-cni/blob/release-4.16/go.mod
+      // OCP 4.20 use v1.7.6 https://github.com/openshift/multus-cni/blob/release-4.20/go.mod
       "allowedVersions": "<= 1.8.0",
       "enabled": true
     },
@@ -167,8 +164,8 @@
     {
       "groupName": "cert-manager",
       "matchPackagePatterns": ["^github.com/cert-manager/cert-manager"],
-      // Allow 1.16, cert-manager 1.17 will pull in k8s 0.32.x
-      "allowedVersions": "< 1.17.0",
+      // Allow 1.18, cert-manager 1.19 will pull in k8s 0.34.x
+      "allowedVersions": "< 1.19.0",
       "enabled": true
     },
     // mschuppert - gophercloud already on v2, remove pinning
@@ -181,22 +178,22 @@
     {
       "groupName": "operator-framework-api",
       "matchPackagePatterns": ["^github.com/operator-framework/api"],
-      // Allow 0.27.0 for OCP 4.18 https://github.com/openshift/operator-framework-olm/blob/release-4.18/go.mod#L16
-      "allowedVersions": "< 0.28.0",
+      // Allow 0.34.0 for OCP 4.20 https://github.com/openshift/operator-framework-olm/blob/release-4.20/go.mod#L16
+      "allowedVersions": "< 0.35.0",
       "enabled": true
     },
     {
       "groupName": "baremetal-operator",
       "matchPackagePatterns": ["^github.com/metal3-io/baremetal-operator/apis"],
-      // mschuppert - from https://github.com/openshift/baremetal-operator/blob/release-4.18/go.mod#L9 still 0.5.1 on OCP 4.18
-      "allowedVersions": "< 0.8.0",
+      // mschuppert - from https://github.com/openshift/baremetal-operator/blob/release-4.20/apis/go.mod v0.11.7 on OCP 4.20, v0.12.0 pulls in k8s 0.34
+      "allowedVersions": "< 0.12.0",
       "enabled": true
     },
     {
       "groupName": "metallb",
       "matchPackagePatterns": ["^github.com/metallb/frr-k8s"],
-      // Allow 0.0.15 for OCP 4.18 https://github.com/openshift/metallb/blob/release-4.18/go.mod#L15
-      "allowedVersions": "< 0.0.16",
+      // Allow 0.0.25 for OCP 4.20 https://github.com/openshift/metallb/blob/release-4.20/go.mod#L15
+      "allowedVersions": "< 0.0.26",
       "enabled": true
     }
     // mschuppert - remove pinning of crypto after bump to golang 1.26, but keeping it as reference for future need
