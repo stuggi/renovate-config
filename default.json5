@@ -171,14 +171,13 @@
       "allowedVersions": "< 1.17.0",
       "enabled": true
     },
-    {
-      // mschuppert - bump of gophercloud is planned
-      "groupName": "gophercloud",
-      "matchPackagePatterns": ["^github.com/gophercloud/gophercloud"],
-      // 2.0.0 requires golang 1.22
-      "allowedVersions": "< 2.0.0",
-      "enabled": true
-    },
+    // mschuppert - gophercloud already on v2, remove pinning
+    //{
+    //  "groupName": "gophercloud",
+    //  "matchPackagePatterns": ["^github.com/gophercloud/gophercloud"],
+    //  "allowedVersions": "< 2.0.0",
+    //  "enabled": true
+    //},
     {
       "groupName": "operator-framework-api",
       "matchPackagePatterns": ["^github.com/operator-framework/api"],
@@ -189,7 +188,6 @@
     {
       "groupName": "baremetal-operator",
       "matchPackagePatterns": ["^github.com/metal3-io/baremetal-operator/apis"],
-      // 0.8.0 needs golang 1.22
       // mschuppert - from https://github.com/openshift/baremetal-operator/blob/release-4.18/go.mod#L9 still 0.5.1 on OCP 4.18
       "allowedVersions": "< 0.8.0",
       "enabled": true
