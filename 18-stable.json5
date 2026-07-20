@@ -178,8 +178,8 @@
     {
       "groupName": "operator-framework-api",
       "matchPackagePatterns": ["^github.com/operator-framework/api"],
-      // Allow 0.34.0 for OCP 4.20 https://github.com/openshift/operator-framework-olm/blob/release-4.20/go.mod#L16
-      "allowedVersions": "< 0.35.0",
+      // Allow 0.33.0 for OCP 4.20 https://github.com/openshift/operator-framework-olm/blob/release-4.20/go.mod#L16
+      "allowedVersions": "< 0.34.0",
       "enabled": true
     },
     {
@@ -192,8 +192,8 @@
     {
       "groupName": "metallb",
       "matchPackagePatterns": ["^github.com/metallb/frr-k8s"],
-      // Allow 0.0.25 for OCP 4.20 https://github.com/openshift/metallb/blob/release-4.20/go.mod#L15
-      "allowedVersions": "< 0.0.26",
+      // Allow 0.0.20 for OCP 4.20 https://github.com/openshift/metallb/blob/release-4.20/go.mod#L15
+      "allowedVersions": "< 0.0.21",
       "enabled": true
     }
     // mschuppert - remove pinning of crypto after bump to golang 1.26, but keeping it as reference for future need
