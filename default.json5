@@ -34,6 +34,12 @@
       "enabled": false
     },
     {
+      // Ruby 4.0 removed bundled gems (logger, etc.) breaking asciidoc docs builds
+      "matchManagers": ["github-actions"],
+      "matchDepNames": ["ruby"],
+      "allowedVersions": "< 4.0.0"
+    },
+    {
       // Group all allowed GitHub Action workflow bumps into one PR
       "matchManagers": ["github-actions"],
       "groupName": "GitHub Actions Dependencies"
